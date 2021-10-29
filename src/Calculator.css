@@ -1,12 +1,40 @@
+:root{
+  --color1:red;
+  --color2: white;
+}
+
+body {
+  background-color: var(--color1);
+  padding: 0;
+}
+
+h1 {
+  background-color: var(--color2);
+  color: var(--color1);
+  padding: 50px 0 0 50px;
+  height: calc(50vh - 50px);
+  margin: -8px;
+}
+
+h1 a {
+  color: inherit;
+}
+
+h1 a:hover {
+  color: blue;
+}
+
 .calculator {
+  background-color: var(--color2);
+
   position: absolute;
   top: 50%;
   left: 50%;
   margin: 0 auto;
   width: 280px;
   height: 500px;
-  margin: -250px 0 0 -140px;
-  border: 1px solid;
+  border: 5px solid gray;
+  margin: -250px 0 0 -145px;
 
   font-family: Georgia, serif;
   text-align: right;
@@ -14,10 +42,10 @@
 
 .calculator p {
   margin: 0;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--color2);
   padding: 0 5% 0 0;
   font-size: 35px;
-  background-color: #222;
+  background-color: black;
 }
 
 .buttons-container {
@@ -35,5 +63,5 @@
 }
 
 .push {
-  color: green;
+  color: lime;
 }
