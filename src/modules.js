@@ -3,8 +3,10 @@ import he from "he";
 const PRESS_NUM = "PRESS_NUM";
 const ENTER = "ENTER";
 const OPERATION = "OPERATION";
+const CLEAR = "CLEAR";
+const OPPOSITE = "OPPOSITE";
 
-// action
+// Actions
 export const pressNum = (n) => ({
   type: PRESS_NUM,
   payload: n,
@@ -19,13 +21,21 @@ export const operation = (op) => ({
   payload: op,
 });
 
-// inputState = append | replace | push
+export const clear = () => ({
+  type: CLEAR,
+});
+
+export const opposite = () => ({
+  type: OPPOSITE,
+});
 
 const doOperation = (x, y, op) => {
   const a = parseFloat(x);
   const b = parseFloat(y);
   console.log(a, b, op);
   switch (op) {
+    case "^":
+      return b ** a;
     case "+":
       return b + a;
     case he.decode("&minus;"):
@@ -41,11 +51,21 @@ const doOperation = (x, y, op) => {
   }
 };
 
-export const reducer = (
-  state = { stack: [], inputState: "replace" },
-  { type, payload }
-) => {
+// inputState = append | replace | push
+const initialState = { stack: [], inputState: "replace" };
+
+export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case OPPOSITE:
+      return {
+        stack: [
+          `${-parseFloat(state.stack[0] || "0")}`,
+          ...state.stack.slice(1),
+        ],
+        inputState: state.inputState,
+      };
+    case CLEAR:
+      return initialState;
     case OPERATION:
       return {
         stack: [

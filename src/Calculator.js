@@ -15,8 +15,12 @@ class Calculator extends Component {
         <p className={"append"}>{stack[1] || 0}</p>
         <p className={inputState}>{stack[0] || 0}</p>
         <div className="buttons-container">
-          <Button color={red}>C</Button>
-          <Button color={green}>()</Button>
+          <Button onClick={this.props.clearAction} color={red}>
+            C
+          </Button>
+          <Button onClick={this.props.operationAction} color={green}>
+            ^
+          </Button>
           <Button onClick={this.props.operationAction} color={green}>
             %
           </Button>
@@ -45,9 +49,9 @@ class Calculator extends Component {
             +
           </Button>
           <br />
-          <Button>&plusmn;</Button>
+          <Button onClick={this.props.oppositeAction}>&plusmn;</Button>
           <Button onClick={this.props.pressNumWithDispatch}>0</Button>
-          <Button onClick={this.props.pressNumWithDispatch}>,</Button>
+          <Button onClick={this.props.pressNumWithDispatch}>.</Button>
           <Button
             onClick={this.props.enterAction}
             color={white}
