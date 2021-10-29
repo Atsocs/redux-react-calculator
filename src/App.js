@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Calculator from "./Calculator";
-import { pressNum, enter } from "./modules";
+import { pressNum, enter, operation } from "./modules";
 
 // Map Redux state to component props
 function mapStateToProps(state) {
@@ -14,6 +14,7 @@ function mapDispatchToProps(dispatch) {
   return {
     pressNumWithDispatch: (n) => dispatch(pressNum(n)),
     enterAction: () => dispatch(enter()),
+    operationAction: (op) => dispatch(operation(op)),
   };
 }
 

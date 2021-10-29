@@ -12,8 +12,28 @@
   text-align: right;
 }
 
+.calculator p {
+  margin: 0;
+  border-bottom: 1px solid gray;
+  padding: 0 5% 0 0;
+  font-size: 35px;
+  background-color: #222;
+}
+
 .buttons-container {
   margin: 0 auto;
   text-align: center;
   vertical-align: middle;
+}
+
+.append {
+  color: white;
+}
+
+.replace {
+  color: blue;
+}
+
+.push {
+  color: green;
 }
