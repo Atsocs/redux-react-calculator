@@ -1,6 +1,5 @@
 import { Component } from "react";
 import "./Calculator.css";
-import Visor from "./Visor";
 import Button from "./Button";
 
 class Calculator extends Component {
@@ -8,9 +7,14 @@ class Calculator extends Component {
     const red = "red";
     const green = "green";
     const white = "white";
+
+    const { stack, inputState } = this.props.calculatorState;
+    console.log(inputState);
     return (
       <div className="calculator">
-        <Visor text={this.props.visorText} equals={"1.5"} />
+        <p>{stack[2] || 0}</p>
+        <p>{stack[1] || 0}</p>
+        <p>{stack[0] || 0}</p>
         <div className="buttons-container">
           <Button color={red}>C</Button>
           <Button color={green}>()</Button>
@@ -35,8 +39,12 @@ class Calculator extends Component {
           <Button>&plusmn;</Button>
           <Button onClick={this.props.pressNumWithDispatch}>0</Button>
           <Button>,</Button>
-          <Button color={white} bgcolor={green}>
-            =
+          <Button
+            onClick={this.props.enterAction}
+            color={white}
+            bgcolor={green}
+          >
+            &#9166;
           </Button>
         </div>{" "}
       </div>
