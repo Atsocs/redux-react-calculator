@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import calculator from "./reducer";
+import { reducer } from "./modules";
 import App from "./App";
 
 let destination = document.querySelector("#container");
 
 // Store
-let store = createStore(calculator);
+let store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>

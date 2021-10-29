@@ -11,3 +11,9 @@
   font-family: Georgia, serif;
   font-size: xx-large;
 }
+
+.buttons-container {
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+}

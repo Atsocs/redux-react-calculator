@@ -5,11 +5,16 @@ class Button extends Component {
   render() {
     let buttonStyle = {
       color: this.props.color,
-      backgroundColor: this.props.bgcolor || "#ddd"
+      backgroundColor: this.props.bgcolor || "#ddd",
     };
+    const text = this.props.children;
     return (
-      <div className="button" style={buttonStyle}>
-        {this.props.children}
+      <div
+        className="button"
+        style={buttonStyle}
+        onClick={() => this.props.onClick && this.props.onClick(text)}
+      >
+        {text}
       </div>
     );
   }
